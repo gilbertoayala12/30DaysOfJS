@@ -1,20 +1,33 @@
+:root {
+  --base: #ca0a01;
+  --spacing: 10px;
+  --blur: 10px;
+}
+
+
 body {
-    text-align: center;
-    background: #193549;
-    color: white;
-    font-family: 'helvetica neue', sans-serif;
-    font-weight: 100;
-    font-size: 50px;
-  }
+  text-align: center;
+  background: #193549;
+  color: white;
+  font-family: "helvetica neue", sans-serif;
+  font-weight: 100;
+  font-size: 50px;
+}
 
-  .controls {
-    margin-bottom: 50px;
-  }
+.controls {
+  margin-bottom: 50px;
+}
 
-  input {
-    width: 100px;
-  }
-  img{
-      width: 45%;
-      height: 45%;
-  }
+input {
+  width: 100px;
+}
+img {
+  padding: var(--spacing);
+  background: var(--base);
+  filter: blur(var(--blur));
+  width: 45%;
+  height: 45%;
+}
+.hl{
+  color: var(--base);
+}
