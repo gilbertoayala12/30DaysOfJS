@@ -93,6 +93,6 @@ body {
 }
 
 .panel.open {
-    flex: 4;
-  font-size: 30px;
+    flex: 3;
+  font-size: 25px;
 }
