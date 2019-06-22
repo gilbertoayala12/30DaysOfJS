@@ -9,7 +9,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-    <link rel="icon" href="https://gilbertoayala12.github.io/30DaysOfJS/7_Array_Cardio_Day2/favicon.ico?v=2" />
+    <link
+      rel="icon"
+      href="https://gilbertoayala12.github.io/30DaysOfJS/7_Array_Cardio_Day2/favicon.ico?v=2"
+    />
   </head>
   <body>
     <nav>
@@ -57,16 +60,33 @@
       ];
 
       // Some and Every Checks
+      console.log("data we're working with");
+      console.log(people);
       // Array.prototype.some() // is at least one person 19 or older?
+      console.log("1. is at least one person 19 or older?");
+      const fullYear = new Date().getFullYear();
+      console.log(people.some(x => fullYear - x.year >= 19));
       // Array.prototype.every() // is everyone 19 or older?
+      console.log("is everyone 19 or older?");
+      const nineteenOrOlder = people.every(x => fullYear - x.year >= 19);
+      console.log(nineteenOrOlder);
 
       // Array.prototype.find()
       // Find is like filter, but instead returns just the one you are looking for
       // find the comment with the ID of 823423
-
+      console.log("data we're using");
+      console.log(comments);
+      console.log("find the comment with the ID of 823423");
+      const certainId = comments.find(id => id.id === 823423);
+      console.log(certainId);
       // Array.prototype.findIndex()
       // Find the comment with this ID
       // delete the comment with the ID of 823423
+      console.log("delete the comment with the ID of 823423");
+
+      const newComments = [...comments.filter(x => x.id !== certainId.id)]; //ES6 to create a new array with the result
+      console.log({ newComments });
+      // you can use slice too, comments.slice(certainId, 1);
     </script>
   </body>
 
