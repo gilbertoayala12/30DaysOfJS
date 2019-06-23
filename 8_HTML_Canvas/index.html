@@ -17,21 +17,51 @@
   <body>
     <nav>
       <div class="nav-wrapper red lighten-1">
-        <a class="brand-logo center "> 30 days of JS</a>
+        <a class="brand-logo center ">Feel free to draw whatever you want</a>
       </div>
     </nav>
+    <div class="row blue lighten-5" style="margin-bottom: 0px">
+      <div class="container">
+        <div class="col s3">
+          <p></p>
+          <div class="controls ">
+            <label for="spacing">Line width:</label>
+            <input
+              id="lineWidth"
+              type="range"
+              name="spacing"
+              min="10"
+              max="100"
+              value="10"
+              data-sizing="px"
+            />
+            <label for="base">Base Color</label>
+            <input id="base" type="color" name="base" value="#CA0A01" />
+          </div>
+        </div>
+        <div class="col s4 offset-s5 ">
+          <ul class="browser-default">
+            <p><b>Instructions:</b></p>
+            <li>Click on your mouse and draw a line 🖱 </li>
+            <li> Let your creativity flow 🎨</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
 
     <canvas id="draw" width="800" height="800"></canvas>
 
     <script>
       const canvas = document.querySelector("#draw");
       const ctx = canvas.getContext("2d");
+      const inputs = document.querySelectorAll(".controls input");
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       ctx.strokeStyle = "#BADA55";
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
-      ctx.lineWidth = 50;
+      ctx.lineWidth = `${inputs[0].value}`;
       ctx.globalCompositeOperation = "overlay";
       //flag to only draw when the user is holding down the button
       let isDrawing = false;
@@ -44,7 +74,7 @@
           return;
         }
         console.log(e);
-        ctx.strokeStyle = `hsl(${hue},100%,50%)`;
+        ctx.strokeStyle = `${inputs[1].value}`;
         ctx.beginPath();
         // start from
         ctx.moveTo(lastX, lastY);
@@ -55,7 +85,7 @@
         [lastX, lastY] = [e.offsetX, e.offsetY];
         hue++;
         if (hue >= 360) hue = 0;
-        
+
         /*if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
           direction = !direction;
         }
