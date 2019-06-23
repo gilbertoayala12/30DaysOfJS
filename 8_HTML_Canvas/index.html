@@ -37,20 +37,28 @@
                 data-sizing="px"
               />
               <label for="base">Base Color</label>
+
               <input id="base" type="color" name="base" value="#CA0A01" />
+
               <button onclick="clearCanvas()">Clear Canvas</button>
             </p>
           </div>
         </div>
         <div class="col s4 offset-s5 ">
           <ul class="browser-default">
-            <p><b>Instructions:</b></p>
+            <b>Instructions:</b>
             <li>Click on your mouse and draw a line 🖱</li>
             <li>Let your creativity flow 🎨</li>
+            <li>
+              <button id="downloadButton" onclick="transform()">
+                Export your masterpiece
+              </button>
+            </li>
           </ul>
         </div>
       </div>
     </div>
+
     <div class="divider"></div>
 
     <canvas id="draw" width="800" height="800"></canvas>
@@ -59,6 +67,7 @@
       const canvas = document.querySelector("#draw");
       const ctx = canvas.getContext("2d");
       const inputs = document.querySelectorAll(".controls input");
+      const downloadButton = document.getElementById("downloadButton");
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       ctx.strokeStyle = "#BADA55";
@@ -66,12 +75,13 @@
       ctx.lineCap = "round";
       ctx.lineWidth = 25;
 
-      ctx.globalCompositeOperation = "";// not gonna use this for now
+      ctx.globalCompositeOperation = ""; // not gonna use this for now
       //flag to only draw when the user is holding down the button
       let isDrawing = false;
       let lastX = 0;
       let lastY = 0;
       let hue = 0;
+
       let direction = true;
       function draw(e) {
         if (!isDrawing) {
@@ -103,6 +113,31 @@
       function clearCanvas() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
+      function isCanvasBlank(canvas) {
+        const pixelBuffer = new Uint32Array(
+          ctx.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+        );
+
+        return !pixelBuffer.some(color => color !== 0);
+      }
+      function transform() {
+        if (!isCanvasBlank(canvas)) {
+          canvas.toBlob(function(blob) {
+            // blob ready, download it
+            let link = document.createElement("a");
+            link.download = "masterPiece.png";
+
+            link.href = URL.createObjectURL(blob);
+            link.click();
+
+            // delete the internal blob reference, to let the browser clear memory from it
+            URL.revokeObjectURL(link.href);
+          }, "image/png");
+        } else {
+          alert("Don't be shy, draw something 😢");
+        }
+      }
+
       canvas.addEventListener("mousedown", e => {
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
@@ -112,6 +147,7 @@
 
       canvas.addEventListener("mouseup", () => (isDrawing = false));
       canvas.addEventListener("mouseout", () => (isDrawing = false));
+
       inputs.forEach(input =>
         input.addEventListener(
           "change",
