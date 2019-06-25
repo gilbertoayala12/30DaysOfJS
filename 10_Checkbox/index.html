@@ -47,6 +47,36 @@
       </div>
     </div>
     <script>
+      // 1. get all the checkboxes
+      const checkBoxes = document.querySelectorAll(
+        '.inbox input[type="checkbox"]'
+      );
+      // 4. create a variable that check the last one that was checked
+      let lastChecked;
+      // 3. create function that handlesCheck
+      function handleCheck(e) {
+        // check if they had the shift key down and check they're checking it
+        let inBetween = false;
+        if (e.shiftKey && this.checked) {
+          checkBoxes.forEach(checkbox => {
+            console.log(checkbox);
+            if (checkbox === this || checkbox === lastChecked) {
+              inBetween = !inBetween;
+              console.log("Checando las de enmedio");
+            }
+            if (inBetween) {
+              checkbox.checked = true;
+            }
+          });
+        }
+
+        // last thing we want to know
+        lastChecked = this;
+      }
+      // 2. Get listener
+      checkBoxes.forEach(checkbox =>
+        checkbox.addEventListener("click", handleCheck)
+      );
     </script>
   </body>
 </html>
