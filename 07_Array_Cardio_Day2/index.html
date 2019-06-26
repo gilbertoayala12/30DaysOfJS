@@ -83,8 +83,8 @@
       // Find the comment with this ID
       // delete the comment with the ID of 823423
       console.log("delete the comment with the ID of 823423");
-
-      const newComments = [...comments.filter(x => x.id !== certainId.id)]; //ES6 to create a new array with the result
+      //ES6 to create a new array with the results
+      const newComments = [...comments.filter(x => x.id !== certainId.id)];
       console.log({ newComments });
       // you can use slice too, comments.slice(certainId, 1);
     </script>
