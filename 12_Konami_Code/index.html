@@ -34,7 +34,7 @@
           >
             <div class="card-content white-text">
               <span class="card-title"
-                >Have a look at the JavaScript Console...again 👀💻</span
+                >Press the Konami Code to prettify this page 🤖🎮</span
               >
               <p>
                 <i></i>
@@ -45,7 +45,23 @@
         <!-- Card ends here-->
       </div>
     </div>
-    <script></script>
+    <script>
+      const pressed = [];
+      const secretCode =
+        "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightabEnter";
+      window.addEventListener("keyup", e => {
+        pressed.push(e.key);
+        pressed.splice(
+          -secretCode.length - 1,
+          pressed.length - secretCode.length
+        );
+        if (pressed.join("").includes(secretCode)) {
+          cornify_add();
+          console.log("dingding");
+        }
+        console.log(pressed);
+      });
+    </script>
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
