@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Reference vs Copy </title>
+    <title>Reference vs Copy</title>
     <script
       type="text/javascript"
       src="https://www.cornify.com/js/cornify.js"
@@ -34,7 +34,8 @@
           >
             <div class="card-content white-text">
               <span class="card-title"
-                >Learning all about objects and arrays, check the console again hehe 🥊</span
+                >Learning all about objects and arrays, check the console again
+                hehe 🥊</span
               >
               <p>
                 <i></i>
@@ -46,7 +47,57 @@
       </div>
     </div>
     <script>
-      
+      //
+      /*  let age =100;
+      let age2 = age;
+      console.log(age,age2);
+      age =200; */
+      // using arrays
+      const players = ["Yo", "Tu", "Gil", "Carlos"];
+      const team = players;
+      console.log(players, team);
+      // if you update an array it will always reference back, players gets updated
+      //team[3] = "Ezreal";
+      console.log(players, team);
+
+      // to fix this we have to take a copy of the array, here's how to do it
+      const team2 = players.slice();
+      // another way
+      const team3 = [].concat(players);
+      // and by spreading with es6
+      const team4 = [...players];
+
+      // array.from
+      const team5 = Array.from(players);
+
+      // with objects now
+      const person = {
+        name: "Gil",
+        age: 24
+      };
+      const captain = person;
+      //captain.age = 55;
+      // how to make a copy
+      const cap2 = Object.assign({}, person, { number: 99 });
+
+      // se puede spredeaar? (si)
+      const cap3 = { ...person };
+
+      // things to note this is only 1 level deep if you change things in social even in the copy they will reference back to the first oobject
+      const gil = {
+        name: "gil",
+        age: 100,
+        social: {
+          twitter: "@gil1012",
+          github: "/gilbertoayala12"
+        }
+      };
+
+      console.log(gil);
+      const dev = Object.assign({}, gil);
+
+      // pormans deepclone not recommended tbh
+      const dev2 = JSON.parse(JSON.stringify(gil));
     </script>
   </body>
 
