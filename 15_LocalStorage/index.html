@@ -54,6 +54,8 @@
       <form class="add-items">
         <input type="text" name="item" placeholder="Item Name" required />
         <input type="submit" value="+ Add Item" />
+        
+        
       </form>
     </div>
 
@@ -70,7 +72,7 @@
           text: text,
           done: false
         };
-        console.log(item);
+        // console.log(item);
         items.push(item);
         populateList(items, itemsList);
         localStorage.setItem("items", JSON.stringify(items));
@@ -86,17 +88,18 @@
               plate.done ? "checked" : ""
             }/>
             <label for ="item${i}">${plate.text}</label>
-            <button>🗑</button>
+           
           </li>
           
           `;
           })
           .join("");
       }
+     
       function toggleDone(e) {
         if (!e.target.matches("input")) return; // skip this unless its an input
         const el = e.target;
-        console.log(el.dataset.index);
+       // console.log(el.dataset.index);
         const index = el.dataset.index;
         items[index].done = !items[index].done;
         localStorage.setItem("items", JSON.stringify(items));
