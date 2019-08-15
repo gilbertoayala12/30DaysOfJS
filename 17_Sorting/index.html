@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sort Without Articles</title>
-    <link rel="stylesheet" href="/17_Sorting/style.css">
+    <link rel="stylesheet" href="/17_Sorting/style.css" />
     <link
       rel="icon"
       href="https://gilbertoayala12.github.io/30DaysOfJS/17_Sorting/favicon.ico?v=2"
@@ -28,6 +28,15 @@
         "Anywhere But Here",
         "An Old Dog"
       ];
+      function strip(bandName) {
+        return bandName.replace(/^(a |the |an )/i, "").trim();
+      }
+
+      const sortedBands = bands.sort((a, b) => (strip(a) > strip(b) ? 1 : -1));
+      console.log(sortedBands);
+      document.querySelector("#bands").innerHTML = sortedBands
+        .map(band => `<li>${band}</li>`)
+        .join("");
     </script>
   </body>
 </html>
