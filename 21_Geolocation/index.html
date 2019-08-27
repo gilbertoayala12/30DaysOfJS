@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Geoloaction</title>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <svg
@@ -52,6 +52,25 @@
       <span class="speed-value">0</span>
       <span class="units">KM/H</span>
     </h1>
-    <script></script>
+    <script>
+      const arrow = document.querySelector(".arrow");
+      const speed = document.querySelector(".speed-value");
+      navigator.geolocation.watchPosition(
+        data => {
+          console.log(data);
+          // iff null = 0
+          if (data.coords.speed === null) {
+            speed.textContent = "0";
+          } else {
+            speed.textContent = data.coords.speed;
+          }
+          arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+        },
+        err => {
+          console.log(err);
+          alert("Allow that to happen!");
+        }
+      );
+    </script>
   </body>
 </html>
