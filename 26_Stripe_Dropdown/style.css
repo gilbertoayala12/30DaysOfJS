@@ -130,6 +130,10 @@ nav ul {
   float: left;
   margin-right: 20px;
 }
+img{
+  width: 150px;
+  height: 150px;
+}
 
 .courses {
   min-width: 300px;
@@ -152,15 +156,16 @@ a.button {
   padding: 10px;
   color: white;
   margin-bottom: 10px;
+  border-radius: 4px;
 }
 
 /* Matches Twitter, TWITTER, twitter, tWitter, TWiTTeR... */
 .button[href*="twitter"] {
   background: #019fe9;
 }
-.button[href*="facebook"] {
-  background: #3b5998;
+.button[href*="instagram"] {
+  background: #E1306C;
 }
-.button[href*="courses"] {
-  background: #ffc600;
+.button[href*="spotify"] {
+  background: #1DB954;
 }

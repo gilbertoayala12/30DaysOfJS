@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Cool</h2>
     <nav class="top">
       <div class="dropdownBackground">
         <span class="arrow"></span>
@@ -17,75 +16,46 @@
           <a href="#">About Me</a>
           <div class="dropdown dropdown1">
             <div class="bio">
-              <img src="https://logo.clearbit.com/wesbos.com" />
+              <img src="https://avatars1.githubusercontent.com/u/10965484?s=460&v=4" />
               <p>
-                Wes Bos sure does love web development. He teaches things like
-                JavaScript, CSS and BBQ. Wait. BBQ isn't part of web
-                development. It should be though!
+                Intern at Nearsoft, I love to build stuff that I use everyday and web dev is kinda fun innit?.
+                I sometimes make music.
               </p>
             </div>
           </div>
         </li>
         <li>
-          <a href="#">Courses</a>
+          <a href="#">Repos</a>
           <ul class="dropdown courses">
             <li>
-              <span class="code">RFB</span>
-              <a href="https://ReactForBeginners.com">React For Beginners</a>
+              
+              <a href="https://gilbertoayala12.github.io/howstheweather/">How's the weather?</a>
             </li>
             <li>
-              <span class="code">ES6</span>
-              <a href="https://ES6.io">ES6 For Everyone</a>
+              
+              <a href="https://agitated-colden-11cb80.netlify.com/">Catch of the day</a>
             </li>
             <li>
-              <span class="code">NODE</span>
-              <a href="https://LearnNode.com">Learn Node</a>
+              
+              <a href="https://gilbertoayala12.github.io/30DaysOfJS/">30 Days of JS</a>
             </li>
-            <li>
-              <span class="code">STPU</span>
-              <a href="https://SublimeTextBook.com">Sublime Text Power User</a>
-            </li>
-            <li>
-              <span class="code">WTF</span>
-              <a href="http://Flexbox.io">What The Flexbox?!</a>
-            </li>
-            <li>
-              <span class="code">GRID</span>
-              <a href="https://CSSGrid.io">CSS Grid</a>
-            </li>
-            <li>
-              <span class="code">LRX</span>
-              <a href="http://LearnRedux.com">Learn Redux</a>
-            </li>
-            <li>
-              <span class="code">CLPU</span>
-              <a href="http://CommandLinePowerUser.com"
-                >Command Line Power User</a
-              >
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="http://MasteringMarkdown.com">Mastering Markdown</a>
-            </li>
+            
+            
           </ul>
         </li>
         <li>
           <a href="#">Other Links</a>
           <ul class="dropdown dropdown3">
             <li>
-              <a class="button" href="http://twitter.com/wesbos">Twitter</a>
+              <a class="button" target="_blank" href="http://twitter.com/gil1012">Twitter</a>
             </li>
             <li>
-              <a class="button" href="http://facebook.com/wesbos.developer"
-                >Facebook</a
+              <a class="button" target="_blank" href="http://instagram.com/gilbertoayala12"
+                >Instagram</a
               >
             </li>
-            <li><a class="button" href="http://wesbos.com">Blog</a></li>
-            <li>
-              <a class="button" href="http://wesbos.com/courses"
-                >Course Catalog</a
-              >
-            </li>
+            <li><a class="button" target="_blank" href="https://open.spotify.com/artist/4LkqrfEMx0IA1Q3D8bqwbb">Spotify</a></li>
+            
           </ul>
         </li>
       </ul>
@@ -100,10 +70,10 @@
         this.classList.add("trigger-enter");
         console.log(this);
         setTimeout(() => {
-          if(this.classList.contains("trigger-enter")){
-            this.classList.add("trigger-enter-active")
+          if (this.classList.contains("trigger-enter")) {
+            this.classList.add("trigger-enter-active");
           }
-        },150);
+        }, 150);
         background.classList.add("open");
         const dropdown = this.querySelector(".dropdown");
         const navCoords = nav.getBoundingClientRect();
